@@ -42,4 +42,37 @@ public class Validator {
 		}
 		return i;
 	}
+	
+	public static double getDouble(Scanner sc, String prompt)	{
+		double d = 0;
+		boolean isValid = false;
+		while(isValid == false)	{
+			System.out.println(prompt);
+			if(sc.hasNextDouble()) {
+				d = sc.nextDouble();
+				isValid = true;
+			}
+			else	{
+				System.out.println("You must enter a non-negative integer. Please try again.");
+			}
+			sc.nextLine();
+		}
+		return d;
+	}
+	
+	public static double getDouble(Scanner sc, String prompt, double min, double max)	{
+		double d = 0;
+		boolean isValid = false;
+		while (isValid == false)	{
+			d = getDouble(sc, prompt);
+			if (d <= min)
+				System.out.println("Error! Number must be greater than " + min + ".");
+			else if (d >= max)
+				System.out.println("Error! Number must be greater than " + max + ".");
+			else
+				isValid = true;
+		}
+		return d;
+	}
+	
 }
