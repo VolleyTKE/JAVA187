@@ -28,5 +28,18 @@ public class Validator {
 		return i;
 	}
 	
-	//public static int getInt(Scanner sc, String prompt, int min, int max)
+	public static int getInt(Scanner sc, String prompt, int min, int max)	{
+		int i = 0;
+		boolean isValid = false;
+		while (isValid == false)	{
+			i = getInt(sc, prompt);
+			if (i <= min)
+				System.out.println("Error! Number must be greater than " + min + ".");
+			else if (i >= max)
+				System.out.println("Error! Number must be less than " + max + ".");
+			else
+				isValid = true;
+		}
+		return i;
+	}
 }
